@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <title>Chairs that Suck</title>
     <link rel="stylesheet" href="styles.css">
@@ -13,10 +14,15 @@
         </div>
         <div class="right">
             <a href="index.html" class="nonActiveLink">Home</a>
-            <a href="products.html" class="nonActiveLink">Products</a>
-            <a href="about.html" class="activeLink">About</a>
+            <a href="products.html" class="activeLink">Products</a>
+            <a href="about.html" class="nonActiveLink">About</a>
             <a href="Cart.html" class="nonActiveLink">Cart</a>
         </div>
     </nav>
+    <div class="main"></div>
+    <body onload="loadProducts()">
+        <ul id="shopping">
+        </ul>
     </body>
+
 </html>

@@ -19,8 +19,16 @@ nav a {
     font-size: 2.5vh;
 }
 
-nav a:hover, .active {
+nav a:hover {
     color: red;
+}
+
+.activeLink {
+    color: yellow;
+}
+
+.nonActiveLink {
+    color: white;
 }
 
 .left {
@@ -40,7 +48,7 @@ nav a:hover, .active {
     display: grid;
     grid-template-columns: repeat(4, auto);
     text-align: center;
-    grid-gap: 1.5vh;
+    grid-gap: 5%;
 }
 
 .container {
@@ -48,6 +56,7 @@ nav a:hover, .active {
     grid-template-columns: 0.5fr auto 0.5fr 0.5fr;
     grid-template-rows: auto;
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .chair {
@@ -78,7 +87,8 @@ p {
 .container2 {
     display: grid;
     grid-template-columns: 2fr 2fr 4fr;
-    grid-template-rows: 0.15fr 1fr;
+    grid-template-rows: auto;
+/*    grid-gap: 2.5 %;*/
     background-color: #272727;
 }
 
@@ -88,40 +98,66 @@ p {
     color: white;
     justify-self: center;
     align-self: center;
-    
+    padding: 5%;
 }
 
 .chair2 {
-    height: 55%;
-    width: auto;
+    height: 22vh;
+    width: 50%;
     align-self: center;
     justify-self: center;
     grid-column: 1/1;
     grid-row: 2/2;
     background-color: #a9a9a9;
+    padding: 10px;
 }
 
-/*
-.left-box {
-    grid-column: 1/1;
-}
-*/
-
-/*
-.box {
-    height: 50%;
+.chair3 {
+    height: 22vh;
     width: 50%;
     align-self: center;
     justify-self: center;
+    grid-column: 2/2;
+    grid-row: 2/2;
+    background-color: #a9a9a9;
+    padding: 10px;
 }
-*/
 
-/*
-.chair3 {
-    height: 55%;
-    width: auto;
+.news {
+    grid-column: 3/3;
+    grid-row: 1/1;
+    color: white;
+    text-align: center;
+    align-self: center;
+}
+
+.bt {
+    color: white;
+    font-size: 1.8vh;
+    text-align: center;
+    grid-column: 3/3;
+    grid-row: 2/2;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+}
+
+.rm {
+    text-decoration: none;
+    color: yellow;
+    grid-column: 3/3;
+    grid-row: 2/2;
     align-self: center;
     justify-self: center;
 }
-*/
+
+/*products page */
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+
 
