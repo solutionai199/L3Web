@@ -88,7 +88,7 @@ p {
     display: grid;
     grid-template-columns: 2fr 2fr 4fr;
     grid-template-rows: auto;
-/*    grid-gap: 2.5 %;*/
+    /*    grid-gap: 2.5 %;*/
     background-color: #272727;
 }
 
@@ -153,11 +153,26 @@ p {
 
 /*products page */
 
-.main {
+.box {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+    grid-template-rows: repeat(1, auto);
+    margin: auto;
+    width: 70vw;
+    height: 60vh;
 }
 
+@media screen and (min-width: 1300px) {
+    .box {
+        grid-template-columns: repeat(4, minmax(250px, auto));
+    }
+}
 
-
+.products {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    background-color: darkgray;
+    margin: 5vh 2vw 5vh 2vw;
+}
