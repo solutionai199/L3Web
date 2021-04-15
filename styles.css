@@ -175,4 +175,14 @@ p {
     justify-items: center;
     background-color: darkgray;
     margin: 5vh 2vw 5vh 2vw;
+    width: 15vw;
+}
+
+.img {
+    width: 90%;
+}
+
+.temp {
+    text-align: center; 
+    margin: 2vh;
 }
