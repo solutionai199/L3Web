@@ -151,7 +151,11 @@ p {
     justify-self: center;
 }
 
-/*products page */
+.rm:hover {
+    color: white;
+}
+
+/* products page */
 
 .box {
     display: grid;
@@ -185,4 +189,35 @@ p {
 .temp {
     text-align: center; 
     margin: 2vh;
+}
+
+.quantity {
+    text-align: center;
+    grid-row: 2/2;
+}
+
+.add {
+    height: 20px;
+    width: 20px;
+}
+
+.minus {
+    height: 20px;
+    width: 20px;
+}
+
+#wow1 {
+    width: 70%;
+}
+
+/* about page */
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: auto;
+}
+
+.about {
+    grid-column: 2/2;
 }
