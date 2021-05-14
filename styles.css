@@ -186,8 +186,8 @@ p {
     width: 90%;
 }
 
-.temp {
-    text-align: center; 
+.chairs {
+    text-align: center;
     margin: 2vh;
 }
 
@@ -204,10 +204,6 @@ p {
 .minus {
     height: 20px;
     width: 20px;
-}
-
-#wow1 {
-    width: 70%;
 }
 
 /* about page */
