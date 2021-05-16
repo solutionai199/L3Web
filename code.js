@@ -4,152 +4,119 @@ var products = [
   ['imgs/Products/Product%201.png', 'Random Chair', 1000, 'description3']
 ];
 
-var products2 = [
-  ['imgs/Products/Product%201.png', 'Epic', 2500, 'description1'],
-  ['imgs/Products/Product%201.png', 'Gamer', 3500, 'description2'],
-  ['imgs/Products/Product%201.png', 'Me', 1000, 'description3']
-];
+var cartItems = [];
+var totalItems = 0;
 
-var products3 = [
-  ['imgs/Products/Product%201.png', 'This', 2500, 'description1'],
-  ['imgs/Products/Product%201.png', 'Is', 3500, 'description2'],
-  ['imgs/Products/Product%201.png', 'Chair', 1000, 'description3']
-];
+function loadProducts() { //loading products on the product page
 
-var products4 = [
-  ['imgs/Products/Product%201.png', 'What', 2500, 'description1'],
-  ['imgs/Products/Product%201.png', 'Is', 3500, 'description2'],
-  ['imgs/Products/Product%201.png', 'Up', 1000, 'description3']
-];
+  var main = document.getElementById('items');
 
-var cart = [];
+  for (var i = 0; i < products.length; i++) {
 
-function itemSelect() {
-  for (let ii = 1; ii <= 1; ii++) {
-    for (let i = 0; i < products.length; i++) {
-      let items = '<div class="chairs"><img class="img" src="' + products[i][0] + '"> <h3>' + products[i][1] + '</h3> <h5>' + products[i][3] + '</h5> <h3>$' + products[i][2] + '</h3></div>';
-      document.getElementById('item' + ii).innerHTML += items;
-      buttons();
-    }
+    var ele = document.createElement('li');
+    var pic = document.createElement('img');
+    var header = document.createElement('h2');
+    var price = document.createElement('h2');
+    var desc = document.createElement('p');
+
+    var increase = document.createElement('button');
+    var decrease = document.createElement('button');
+    var box = document.createElement('input');
+    var add = document.createElement('button');
+
+    main.appendChild(ele);
+    ele.appendChild(pic);
+    ele.appendChild(header);
+    ele.appendChild(price);
+    ele.appendChild(desc);
+
+    ele.appendChild(increase);
+    ele.appendChild(decrease);
+    ele.appendChild(box);
+    ele.appendChild(add);
+
+    pic.src = products[i][0];
+    header.innerHTML = products[i][1];
+    price.innerHTML = '$' + products[i][2];
+    desc.innerHTML = products[i][3];
+
+    increase.innerHTML = "+";
+    decrease.innerHTML = "-";
+    box.type = 'number';
+    add.innerHTML = 'Add To Cart';
+
+    box.setAttribute('id', 'input' + i);
+    box.value = 1;
+
+    add.dataset.cartIndex = i;
+    add.addEventListener('click', adding, false);
   }
-
-  for (let ii = 2; ii <= 2; ii++) {
-    for (let i = 0; i < products2.length; i++) {
-      let items2 = '<div class="chairs"><img class="img" src="' + products2[i][0] + '"> <h3>' + products2[i][1] + '</h3> <h5>' + products2[i][3] + '</h5> <h3>$' + products2[i][2] + '</h3></div>';
-      document.getElementById('item' + ii).innerHTML += items2;
-      buttons2();
-    }
-  }
-
-  for (let ii = 3; ii <= 3; ii++) {
-    for (let i = 0; i < products3.length; i++) {
-      let items3 = '<div class="chairs"><img class="img" src="' + products3[i][0] + '"> <h3>' + products3[i][1] + '</h3> <h5>' + products3[i][3] + '</h5> <h3>$' + products3[i][2] + '</h3></div>';
-      document.getElementById('item' + ii).innerHTML += items3;
-      buttons3();
-    }
-  }
-
-  for (let ii = 4; ii <= 4; ii++) {
-    for (let i = 0; i < products4.length; i++) {
-      let items4 = '<div class="chairs"><img class="img" src="' + products4[i][0] + '"> <h3>' + products4[i][1] + '</h3> <h5>' + products4[i][3] + '</h5> <h3>$' + products4[i][2] + '</h3></div>';
-      document.getElementById('item' + ii).innerHTML += items4;
-      buttons4();
-    }
-  }
-} //end of itemSelect
-
-function buttons() {
-  var main = document.getElementById('item1');
-
-  // for (var i = 0; i < products.length; i++) {
-
-  var add = document.createElement('button');
-  var minus = document.createElement('button');
-  var box = document.createElement('input');
-
-  // input id="number3" type="number" value="1"
-
-  main.appendChild(add);
-  main.appendChild(minus);
-  main.appendChild(box);
-
-  add.innerHTML = "+";
-  minus.innerHTML = "-";
-  box.type = 'number';
-
-  // box.setAttribute('id', 'input', i);
-  // box.value = 1;
-
-
-  // add.dataset.cartIndex = i;
-  // add.addEventListner('click', adding, false);
-  // }
 }
 
-// function adding(event) {
-//   const NUM = event.currentTarget.dataset.cartIndex;
-//   cart.push([products[NUM]]);
-//   cart[cart.length - 1][1] = document.getElementById('input' + NUM).value;
-//   updateCart();
-// }
-//
-// function updateCart() {
-//
-// }
+function adding(event) {
+  const NUM = event.currentTarget.dataset.cartIndex;
+  cartItems.push([products[NUM]]);
+  cartItems[cartItems.length - 1][1] = Number(document.getElementById('input' + NUM).value);
 
-function buttons2() {
-  var main = document.getElementById('item2');
-  var add = document.createElement('button');
-  var minus = document.createElement('button');
-
-  main.appendChild(add);
-  main.appendChild(minus);
-
-  add.innerHTML = "+";
-  minus.innerHTML = "-";
+  updateCart();
 }
 
-function buttons3() {
-  var main = document.getElementById('item3');
-  var add = document.createElement('button');
-  var minus = document.createElement('button');
+function updateCart() {
+  var itemCounter = document.getElementById('itemCount');
+  totalItems = 0;
+  for (var i = 0; i < cartItems.length; i++) {
+    totalItems += cartItems[i][1];
+  }
 
-  main.appendChild(add);
-  main.appendChild(minus);
+  window.sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-  add.innerHTML = "+";
-  minus.innerHTML = "-";
+  itemCounter.innerHTML = totalItems;
 }
 
-function buttons4() {
-  var main = document.getElementById('item4');
-  var add = document.createElement('button');
-  var minus = document.createElement('button');
+function loadCart() { // loading products on cart page
 
-  main.appendChild(add);
-  main.appendChild(minus);
+  var main = document.getElementById('cartProducts');
 
-  add.innerHTML = "+";
-  minus.innerHTML = "-";
+  var data = sessionStorage.getItem('cartItems');
+  data = JSON.parse(data);
+
+  cartItems = data;
+
+  for (var i = 0; i < products.length; i++) {
+
+    var ele = document.createElement('li');
+    var pic = document.createElement('img');
+    var header = document.createElement('h2');
+    var price = document.createElement('h2');
+    var subtract = document.createElement('button');
+    var amount = document.createElement('h2');
+    var subtotal = document.createElement('h3');
+
+    main.appendChild(ele);
+    ele.appendChild(pic);
+    ele.appendChild(header);
+    ele.appendChild(price);
+    ele.appendChild(subtract);
+    ele.appendChild(amount);
+    ele.appendChild(subtotal);
+
+    pic.src = cartItems[i][0][0];
+    header.innerHTML = cartItems[i][0][1];
+    price.innerHTML = '$' + cartItems[i][0][2];
+    amount.innerHTML = cartItems[i][1];
+    subtotal.innerHTML = '$' + cartItems[i][1] * cartItems[i][0][2];
+
+    subtract.innerHTML = 'Remove';
+
+    subtract.dataset.cartIndex = i;
+    subtract.addEventListener('click', deleteItems, false);
+  }
 }
 
-
-
-// function add(num) {
-//   var text = document.getElementById('number' + num).value;
-//   text = Number(text);
-//   document.getElementById('number' + num).value = text += 1;
-// } //end of add
-//
-// function minus(num) {
-//   var text = document.getElementById('number' + num).value;
-//   text = Number(text);
-//   if (text >= 1) {
-//     document.getElementById('number' + num).value = text -= 1;
-//   }
-//   document.getElementById("d0").onclick = function() {}
-// } //end of minus
+function deleteItems() {
+  alert('gone');
+}
 
 window.onload = function() {
-  itemSelect();
+  loadProducts();
 } //end of window.onload
