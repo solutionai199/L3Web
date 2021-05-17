@@ -169,20 +169,27 @@ p {
   .box {
     grid-template-columns: repeat(4, minmax(250px, auto));
   }
+  .products {
+    grid-template-columns: repeat(4, minmax(250px, auto));
+  }
 }
 
 .products {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, auto);
-  background-color: darkgray;
-  margin: 10vh 2vw 5vh 2vw;
-  width: repeat(auto-fill, minmax(7vw, auto));
-  grid-column: 2/2;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: 1fr;
+  grid-gap: 4vw;
+  margin-top: 9vh;
+  /* width: repeat(auto-fill, minmax(7vw, auto)); */
+  grid-column: 1/2;
 }
 
 .products li {
   margin: 2vh;
+  width: 100%;
+  list-style: none;
+  background-color: darkgray;
+  padding: 1vw;
 }
 
 .products img {
