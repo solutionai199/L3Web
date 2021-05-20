@@ -18,7 +18,7 @@ function loadProducts() { //loading products on the product page
 
   var main = document.getElementById('items'); //where these elements will go on the cart html page
 
-  for (var i = 0; i < products.length; i++) {
+  for (var i = 0; i < products.length; i++) { //for loop to make these elements for each of the items in the products array
 
     //creating the elements properties
     var ele = document.createElement('li');
@@ -71,13 +71,14 @@ function increasing(num) {
   inputBox.value++;
 } //end of increasing
 
-function decreasing(num) {
+function decreasing(num){
   const NUM = event.currentTarget.dataset.cartIndex;
-  var inputBox = document.getElementById('input' + NUM);
-  if (inputBox >= 1) { //stops it from going negative
-    inputBox.value--;
-  }
-}
+   var inputBox = document.getElementById('input' + NUM).value;
+   if(inputBox > 1){ //only if greater than 1 it will minus therefore won't go into negatives
+     inputBox--;
+     document.getElementById('input' + NUM).value = inputBox;
+   }
+} //end of decreasing
 
 function adding(event) { //function for the button to add products to cart
   const NUM = event.currentTarget.dataset.cartIndex;
@@ -146,17 +147,17 @@ function loadCart() { // loading products on cart page
 
 function deleteItems() { //function for removing the items in the cart
   const NUM = event.currentTarget.dataset.cartIndex;
-  delete cartItems[NUM];
-  cartItems = cartItems.filter(item => item !== undefined);
+  delete cartItems[NUM]; //deletes the item you clicked remove on
+  cartItems = cartItems.filter(item => item !== undefined); //once it's deleted the array will become undefined so this will filter out that problem and make it null
   updateCart();
   loadCart();
-  // window.location.reload(true);
+  window.location.reload(true); //refreshes the page to get rid of product still on page after its properties was deleted
 
-  if (cartItems.length == 0) {
+  if (cartItems.length == 0) { //if there is nothing in the cart
     console.log(empty);
     empty = true;
   }
-  if (empty == true) {
+  if (empty == true) { //it will display this text
     var main = document.getElementById('cartProducts');
     var text = document.createElement('h2');
     main.appendChild(text);

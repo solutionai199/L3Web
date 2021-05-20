@@ -16,7 +16,7 @@ nav {
 nav a {
   text-decoration: none;
   color: white;
-  font-size: 2.5vh;
+  font-size: 2.75vh;
 }
 
 nav a:hover {
@@ -44,11 +44,10 @@ nav a:hover {
 
 .right {
   grid-column: 3/5;
-  margin: auto;
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(5, auto);
   text-align: center;
-  grid-gap: 5%;
+  margin-top: auto;
 }
 
 .container {
@@ -65,9 +64,13 @@ nav a:hover {
 }
 
 .text {
+  grid-column: 3/3;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 4vh;
 }
 
 .title {
@@ -77,18 +80,20 @@ nav a:hover {
   color: white;
 }
 
-p {
+.catchyDescription {
+  grid-column: 3/3;
   text-align: center;
   color: white;
-  grid-column: 3/3;
   font-size: 2vh;
+  margin: 3vh;
 }
 
 .container2 {
   display: grid;
   grid-template-columns: 2fr 2fr 4fr;
-  grid-template-rows: auto;
+  grid-template-rows: 1fr;
   background-color: #272727;
+  margin-bottom: auto;
 }
 
 .RA {
@@ -136,9 +141,7 @@ p {
   text-align: center;
   grid-column: 3/3;
   grid-row: 2/2;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 1fr 1fr;
+  margin-top: 2vh;
 }
 
 .rm {
@@ -230,12 +233,29 @@ input::-webkit-inner-spin-button {
 /* about page */
 .main {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-template-columns: auto;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 20vh;
 }
 
-.about {
-  grid-column: 2/2;
+.textBox {
+  background-color: darkgray;
+  width: 54vw;
+  text-align: center;
+  align-self: center;
+  margin: auto;
+
+}
+
+.AW {
+  margin: 2vh auto;
+  text-decoration: underline;
+}
+
+p {
+  color: black;
+  font-size: 2.2vh;
+  margin: 3vh 1vw 2vh 1vw;
 }
 
 /* cart page */
