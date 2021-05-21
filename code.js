@@ -1,15 +1,15 @@
 var products = [
-  ['imgs/Products/Product%201.png', 'Fancy Chair', 200, 'description'],
-  ['imgs/Products/Product%201.png', 'Not Fancy Chair', 90, 'description'],
-  ['imgs/Products/Product%201.png', 'Random Chair', 75, 'description'],
-  ['imgs/Products/Product%201.png', 'Epic Chair', 500, 'description'],
-  ['imgs/Products/Product%201.png', 'Sunday Afternoon Chair', 25, 'description'],
-  ['imgs/Products/Product%201.png', 'Nice Chair', 100, 'description']
+  ['imgs/Products/Product%201.png', 'Regular Chair', 50, 'description'],
+  ['imgs/Products/Product%202.png', 'Not Fancy Chair', 25, 'description'],
+  ['imgs/Products/Product%205.png', 'Office Chair', 120, 'description'],
+  ['imgs/Products/Product%208.png', 'Unusual Chair', 500, 'description'],
+  ['imgs/Products/Product%207.png', 'Sunday Afternoon Chair', 150, 'description'],
+  ['imgs/Products/Product%206.png', 'Nice Chair', 200, 'description']
 ];
 
 var cartItems = [];
 var totalItems = 0;
-var empty = false;
+var empty = true;
 var plus = '<div class="increase">' + '+' + '</div>';
 var minus = '<div class="decrease">' + '-' + '</div>';
 var cartAdd = '<div class="cartAdd">' + 'Add To Cart' + '</div>';
@@ -135,13 +135,21 @@ function loadCart() { // loading products on cart page
     pic.src = cartItems[i][0][0];
     header.innerHTML = '<div class="name">' + cartItems[i][0][1] + '</div>';
     price.innerHTML = '<div class="price">' + '$' + cartItems[i][0][2] + '</div>';
-    amount.innerHTML = '<div class="amount">' + cartItems[i][1] + '</div>';
+    amount.innerHTML = '<div class="amount">' + 'Quantity: ' + cartItems[i][1] + '</div>';
     subtotal.innerHTML = '<div class="subtotal">' + '$' + cartItems[i][1] * cartItems[i][0][2] + '</div>';
-    // grandTotal.innerHTML = '$' + cartItems[0][2] * cartItems[i][2];
-
-    subtract.innerHTML = '<div class="delete">' + 'Remove' + '</div>';
+    subtract.innerHTML = 'Remove';
     subtract.dataset.cartIndex = i;
     subtract.addEventListener('click', deleteItems, false);
+
+    if (cartItems.length > 0) { //if there is nothing in the cart
+      empty = false;
+    }
+    if (empty == true) { //it will display this text
+      var main = document.getElementById('empty');
+      var text = document.createElement('h2');
+      main.appendChild(text);
+      text.innerHTML = 'Your Cart Is empty';
+    }
   }
 } //end of loadCart
 
@@ -152,17 +160,6 @@ function deleteItems() { //function for removing the items in the cart
   updateCart();
   loadCart();
   window.location.reload(true); //refreshes the page to get rid of product still on page after its properties was deleted
-
-  if (cartItems.length == 0) { //if there is nothing in the cart
-    console.log(empty);
-    empty = true;
-  }
-  if (empty == true) { //it will display this text
-    var main = document.getElementById('cartProducts');
-    var text = document.createElement('h2');
-    main.appendChild(text);
-    text.innerHTML = 'Your Cart Is empty';
-  }
 } //end of deleteItems
 
 window.onload = function() {

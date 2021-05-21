@@ -1,16 +1,17 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Chairs that Suck</title>
+  <title>Cool Chairs</title>
   <link rel="stylesheet" href="styles.css">
   <script src="code.js"></script>
+  <meta charset="UTF-8">
 </head>
 
-<body>
+<body onload="loadProducts()">
   <nav>
     <div class="left">
-      <img class="logo" src="imgs/Logo/logo.png">
+      <img class="logo" alt="logo" src="imgs/Logo/logo3.png">
     </div>
     <div class="right">
       <a href="index.html" class="nonActiveLink">Home</a>
@@ -21,16 +22,12 @@
   </nav>
   <div class="box">
 
-    <body onload="loadProducts()">
-      <div class="PI">
-        <h1 class="cartHeader">Cart Items:</h1>
-        <h2 id='itemCount'>0</h2>
-      </div>
-      <!--- without this it brings up error !-->
-      <div class="products" id="items">
-      </div>
-
-    </body>
+    <div class="productItems">
+      <h1 class="cartHeader">Cart Items:</h1>
+      <h2 id='itemCount'>0</h2>
+    </div>
+    <ul class="products" id="items">
+    </ul>
   </div>
 
 </body>

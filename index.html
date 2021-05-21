@@ -1,16 +1,17 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   <title>Cool Chairs</title>
-  <link rel="stylesheet" href="styles.css">
+  <link type="text/css" rel="stylesheet" href="styles.css">
   <script src="code.js"></script>
+  <meta charset="UTF-8">
 </head>
 
-<body>
+<body onload="loadProducts">
   <nav>
     <div class="left">
-      <img class="logo" src="imgs/Logo/logo.png">
+      <img class="logo" alt="Logo" src="imgs/Logo/logo3.png">
     </div>
     <div class="right">
       <a href="index.html" class="activeLink">Home</a>
@@ -20,24 +21,22 @@
     </div>
   </nav>
 
-  <body onload="loadProducts">
-    <div class="container">
-      <img class="chair" src="imgs/Products/Product%202.png">
-      <div class="text">
-        <h1 class="title">Cool Chairs</h1>
-        <p class="catchyDescription">Chairs that you can't go without</p>
-      </div>
+  <div class="container">
+    <img class="chair" alt="Chair" src="imgs/Products/Product%202.png">
+    <div class="text">
+      <h1 class="title">Cool Chairs</h1>
+      <p class="catchyDescription">Chairs that you can't go without</p>
     </div>
-    <div class="container2">
-      <h2 class="RA">Recent Additions</h2>
-      <img class="chair2" src="imgs/Products/Product%201.png">
-      <img class="chair3" src="imgs/Products/Product%202.png">
-      <h2 class="news">News</h2>
-      <p class="bt">Our latest models have just arrived! Adding more to the collection so make sure you check them out</p>
-      <a href="products.html" class="rm">Read More</a>
+  </div>
+  <div class="container2">
+    <h2 class="recentAdditions">Recent Additions</h2>
+    <img class="chair2" alt="Chair2" src="imgs/Products/Product%201.png">
+    <img class="chair3" alt="Chair3" src="imgs/Products/Product%202.png">
+    <h2 class="news">News</h2>
+    <p class="latestModels">Our latest models have just arrived! Adding more to the collection so make sure you check them out</p>
+    <a href="products.html" class="readMore">Read More</a>
 
-    </div>
-  </body>
+  </div>
 </body>
 
 </html>
